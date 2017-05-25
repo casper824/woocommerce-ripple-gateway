@@ -33,6 +33,6 @@ class RippleExchange
 
         $result = json_decode(curl_exec($ch));
         $rate = $result->ticker->price;
-		return $amount * $rate;
+		return round($amount * $rate,6);
     }
 }

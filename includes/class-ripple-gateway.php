@@ -61,7 +61,7 @@ class WcRippleGateway extends WC_Payment_Gateway
         // print_r($woocommerce->cart->get_order());
         $total_converted = RippleExchange::convert(get_woocommerce_currency(), $this->get_order_total());
 
-        $destination_tag = Date('d') . hexdec( substr(sha1( key ($woocommerce->cart->cart_contents )  ), 0, 5) );
+        $destination_tag = hexdec( substr(sha1( Date('u') . key ($woocommerce->cart->cart_contents )  ), 0, 7) );
 
         // set session data 
         WC()->session->set('ripple_payment_total', $total_converted);
@@ -108,8 +108,8 @@ class WcRippleGateway extends WC_Payment_Gateway
         echo '<div class="separator"></div>';
         echo '<div class="ripple-container">';
         echo '<p>'. sprintf(__('Send a payment of exactly %s to the address above (click the links to copy or scan the QR code). We will check in the background and notify you when the payment has been validated.', 'woocommerce-ripple-gateway'), '<strong>'. esc_attr($total_converted) .'</strong>' ) .'</p>';
-        echo '<p>'. sprintf(__('Please send your payment within %s.', 'woocommerce-ripple-gateway'), '<strong><span class="ripple-countdown" data-minutes="5">5:00</span></strong>' ) .'</p>';
-        echo '<p class="small">'. __('When the timer reaches 0 this form will refresh and update the total amount using the latest conversion rate.', 'woocommerce-ripple-gateway') .'</p>';
+        echo '<p>'. sprintf(__('Please send your payment within %s.', 'woocommerce-ripple-gateway'), '<strong><span class="ripple-countdown" data-minutes="10">10:00</span></strong>' ) .'</p>';
+        echo '<p class="small">'. __('When the timer reaches 0 this form will refresh and update the destination tag as well as the total amount using the latest conversion rate.', 'woocommerce-ripple-gateway') .'</p>';
         echo '</div>';
         
         echo '<input type="hidden" name="tx_hash" id="tx_hash" value="0"/>';
@@ -130,6 +130,7 @@ class WcRippleGateway extends WC_Payment_Gateway
         $destination_tag = WC()->session->get('ripple_destination_tag');
 
         if (sha1($this->secret . $destination_tag . $payment_total) != WC()->session->get('ripple_data_hash')) {
+            exit('sha1');
             return
                 array(
                     'result' => 'failure',
@@ -141,13 +142,14 @@ class WcRippleGateway extends WC_Payment_Gateway
 	    $transaction = $ra->getTransaction( $_POST['tx_hash']);
 
 	    if($transaction->transaction->tx->DestinationTag != $destination_tag){
+	    	exit('destination');
 	    	return array(
 		        'result'    => 'failure',
 		        'messages' 	=> 'destination_tag mismatch'
 		    );
 	    }
 
-	    if($transaction->transaction->tx->Amount != $payment_total && $this->test_mode == 'no'){
+	    if($transaction->transaction->tx->Amount != ($payment_total * 1000000) && $this->test_mode == 'no'){
 	    	return array(
 		        'result'    => 'failure',
 		        'messages' 	=> 'amount mismatch'

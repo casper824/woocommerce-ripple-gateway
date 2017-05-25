@@ -4,7 +4,7 @@ Donate link: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
 Tags: billing, invoicing, woocommerce, packing, packingslip
 Requires at least: 3.0.1
 Tested up to: 4.7.5
-Stable tag: 0.0.2
+Stable tag: 0.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,11 @@ Install the plugin by uploading the zipfile in your WP admin interface or via FT
 
 
 == Changelog ==
+
+= 0.0.3 =
+* Changed timer to 10 minutes
+* Made destination tag random on each refresh
+* Fixed amount comparison
 
 = 0.0.2 =
 * Now using cryptonator API for exchange rate (Ripple returned an optimistic value for EURXRP)

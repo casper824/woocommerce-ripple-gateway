@@ -32,7 +32,6 @@ class RippleApi
             $query = '?' . rtrim($query, '&');
         }
 
-        echo $endpoint;
         $ch = curl_init();
         // curl_setopt ($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_VERBOSE, 1);
@@ -73,7 +72,7 @@ class RippleApi
             'currency'        => 'XRP',
             'descending'      => true,
             'destination_tag' => $dt,
-            'start'           => Date('Y-m-d\TH:i:s\Z', strtotime("-10 hours")),
+            'start'           => Date('Y-m-d\TH:i:s\Z', strtotime("-15 minutes")),
         );
         $result = $this->get('accounts/' . $this->address . '/payments', $params);
         if ($result->count == 0) {

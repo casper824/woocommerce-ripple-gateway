@@ -22,6 +22,12 @@ Donate BTC: 1F6kuw1KtFkgQkUQ3eftmJm6UiNaM5LySs
 ![Screenshot1](/assets/screenshot-1.png "Checkout")
 
 ## Changelog
+
+### v0.0.3
+- Changed timer to 10 minutes
+- Update destination tag on each refresh
+- Fixed amount comparison
+
 ### v0.0.2
 - Now using cryptonator API for exchange rate (Ripple returned an optimistic value for EURXRP)
 
