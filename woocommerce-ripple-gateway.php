@@ -141,7 +141,7 @@ if (!class_exists('WcRipple')) {
 
 	        $options = get_option('woocommerce_ripple_settings');
 
-	        if ($options['show_prices']) {
+	        if ($options['show_prices'] == 'yes') {
 
 	            $xrp_price = round(RippleExchange::convert($currency, $price), 2, PHP_ROUND_HALF_UP);
 	            if ($xrp_price) {
