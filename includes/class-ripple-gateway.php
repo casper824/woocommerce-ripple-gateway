@@ -23,7 +23,7 @@ class WcRippleGateway extends WC_Payment_Gateway
         $this->address   			= $this->get_option('address');
         $this->secret   			= $this->get_option('secret');
         $this->test_mode   			= $this->get_option('test_mode');
-        $this->order_button_text 	= __('Awaiting transfer..');
+        $this->order_button_text 	= __('Awaiting transfer..','woocommerce-ripple-gateway');
         $this->has_fields 			= true;
 
         $this->initFormFields();
@@ -51,30 +51,6 @@ class WcRippleGateway extends WC_Payment_Gateway
     	// sha1( get_bloginfo() )
         parent::init_settings();
     }
-
-    public function processPayment($order_id)
-    {
-
-        global $woocommerce;
-        $order = new WC_Order($order_id);
-
-        // Mark as on-hold (we're awaiting the cheque)
-        $order->update_status('paid', __('Awaiting ripple payment', 'woocommerce'));
-
-        // Reduce stock levels
-        $order->reduce_order_stock();
-
-        // Remove cart
-        $woocommerce->cart->empty_cart();
-
-        // Return thankyou redirect
-        return array(
-            'result'   => 'success',
-            'redirect' => $this->get_return_url($order),
-        );
-
-    }
-
    
     public function payment_fields()
     {
@@ -164,7 +140,6 @@ class WcRippleGateway extends WC_Payment_Gateway
 	    $ra = new RippleApi($this->address);
 	    $transaction = $ra->getTransaction( $_POST['tx_hash']);
 
-	    // print_r($transaction);
 	    if($transaction->transaction->tx->DestinationTag != $destination_tag){
 	    	return array(
 		        'result'    => 'failure',

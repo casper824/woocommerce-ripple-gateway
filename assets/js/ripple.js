@@ -27,11 +27,9 @@
 			        },300);
 			        return false;
 			    });
-
 			   
 				countdown = $('.ripple-countdown').data('minutes') * 60 * 1000;
 			
-
                 // ignore button presses while waiting
                 $('#place_order').on( 'click',function () {
                     if($( '#ripple-form' ).is(':visible') && allow_button_click == false){
@@ -54,10 +52,10 @@
                 }
             }).done(function (res) {
                 console.log("Match: " + res);
-                if(res.result == true){
+                if(res.result == true && res.match == true){
                 	$("#tx_hash").val( res.tx_hash );
                     allow_button_click = true;
-                    // $( '#place_order' ).trigger( 'click');
+                    $( '#place_order' ).trigger( 'click');
                     return;
                 }
                 setTimeout(function() {
@@ -65,13 +63,6 @@
                 }, 3000);
             });
         },
-        checkAccount: function(){
-        	console.log('checked sender');
-        },
-        countDown: function(){
-
-        }
-
     }
 
     ripple.init();
@@ -83,9 +74,8 @@
     setInterval(function(){
 		countdown -= 1000;
 		
-		//var sec = Math.floor(countdown - (min * 60 * 1000));  // wrong
 		var minutes = Math.floor(countdown / (60 * 1000));
-		var seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);  //correct
+		var seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);  
 
 		if (countdown <= 0) {
 			if($( '#ripple-form' ).is(':visible')){
@@ -97,6 +87,5 @@
 
 	}, 1000); 
 
-   
 
 })( jQuery );
