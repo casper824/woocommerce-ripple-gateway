@@ -6,7 +6,7 @@
  * Plugin Name: WooCommerce Ripple Gateway
  * Plugin URI: www.q-invoice.com
  * Description: Show prices in XRP and accept Ripple payments in your woocommerce webshop
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: Casper Mekel
  * License: GPLv2 or later
  * License URI: http://www.opensource.org/licenses/gpl-license.php
