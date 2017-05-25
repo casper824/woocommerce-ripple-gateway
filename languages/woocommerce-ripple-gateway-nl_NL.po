@@ -1,0 +1,134 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Ripple Gateway\n"
+"POT-Creation-Date: 2017-05-24 22:52+0200\n"
+"PO-Revision-Date: 2017-05-24 22:56+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: woocommerce-ripple-gateway.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/class-ripple-gateway.php:19
+msgid "Awaiting transfer.."
+msgstr "Wacht op betaling.."
+
+#: includes/class-ripple-gateway.php:61
+msgid "Awaiting ripple payment"
+msgstr "In afwachting van betaling"
+
+#: includes/class-ripple-gateway.php:140
+msgid "amount"
+msgstr "bedrag"
+
+#: includes/class-ripple-gateway.php:141 includes/class-ripple-gateway.php:147
+#: includes/class-ripple-gateway.php:152
+msgid "copied"
+msgstr "gekopieerd"
+
+#: includes/class-ripple-gateway.php:146
+msgid "destination address"
+msgstr "bestemming adres"
+
+#: includes/class-ripple-gateway.php:151
+msgid "destination tag"
+msgstr "destination tag"
+
+#: includes/class-ripple-gateway.php:156
+#, php-format
+msgid ""
+"Send a payment of exactly %s to the address above (click the links to copy "
+"or scan the QR code). We will check in the background and notify you when "
+"the payment has been validated."
+msgstr ""
+"Stuur een betaling van exact %s naar het adres hierboven (klik op de links "
+"om te kopiëren of scan de QR code). Op de achtergrond controleren wij of de "
+"betaling is ontvangen, u wordt dan doorgestuurd."
+
+#: includes/class-ripple-gateway.php:173
+msgid "Awaiting payment"
+msgstr "In afwachting van betaling"
+
+#: includes/class-ripple-settings.php:22
+msgid "Enable/Disable"
+msgstr "Activeer/Deactiveer"
+
+#: includes/class-ripple-settings.php:24
+msgid "Enable Ripple payments"
+msgstr "Ripple betalingen toestaan"
+
+#: includes/class-ripple-settings.php:29
+msgid "Title"
+msgstr "Titel"
+
+#: includes/class-ripple-settings.php:31
+msgid "This controls the title which the user sees during checkout."
+msgstr "Pas hier de titel aan die uw bezoeker tijdens het betalen ziet"
+
+#: includes/class-ripple-settings.php:32
+msgid "Ripple (XRP) payment"
+msgstr "Ripple (XRP) betaling"
+
+#: includes/class-ripple-settings.php:36
+msgid "Customer Message"
+msgstr "Bericht voor klant"
+
+#: includes/class-ripple-settings.php:38
+msgid "Pay online using your favorite crypto currency, Ripple."
+msgstr "Betaal online met uw favoriete crypto munt, Ripple."
+
+#: includes/class-ripple-settings.php:41
+msgid "Destination address"
+msgstr "Ontvanger adres"
+
+#: includes/class-ripple-settings.php:44
+msgid "This addresses will be used for receiving funds."
+msgstr "Dit adres wordt gebruikt voor het ontvangen van betalingen."
+
+#: includes/class-ripple-settings.php:48
+msgid "Convert prices"
+msgstr "Bedragen omrekenen"
+
+#: includes/class-ripple-settings.php:50
+msgid "Add prices in XRP"
+msgstr "Bedragen in XRP tonen"
+
+#: includes/class-ripple-settings.php:56
+msgid "Test mode active"
+msgstr "Test modus actief"
+
+#: includes/class-ripple-settings.php:58
+msgid ""
+"All payments with the matching destination tag will be accepted without "
+"checking the amount. CAREFUL!"
+msgstr ""
+"Alle betalingen waarvan de desination tag overeenkomt worden geaccepteerd, "
+"ongeacht de hoogte van de betaling. VOORZICHTIG!"
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Ripple Gateway"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "www.q-invoice.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Accept Ripple payments in your woocommerce webshop"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "q-invoice.com"
+msgstr ""

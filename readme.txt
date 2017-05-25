@@ -1,0 +1,43 @@
+=== Qinvoice Connect for Woocommerce ===
+Contributors: q-invoice
+Donate link: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
+Tags: billing, invoicing, woocommerce, packing, packingslip
+Requires at least: 3.0.1
+Tested up to: 4.6.1
+Stable tag: 2.2.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Show prices in XRP and accept Ripple payments in your woocommerce webshop
+
+== Description ==
+
+Display prices in XRP and let your clients pay through Ripple.
+
+Ripple address: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
+
+== Installation ==
+
+Install the plugin by uploading the zipfile in your WP admin interface or via FTP:
+
+1. Upload the plugin folder to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Find the configuration page and fill out your settings and preferences
+
+== Frequently Asked Questions ==
+
+== Screenshots ==
+
+
+
+== Changelog ==
+
+= 0.0.1 =
+* Initial release
+
+== Upgrade Notice ==
+
+No upgrade notices apply.
+
+== Arbitrary section ==
+
