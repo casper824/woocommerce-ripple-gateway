@@ -3,7 +3,9 @@ WooCommerce Ripple Gateway
 
 Show prices in XRP and accept Ripple payments in your woocommerce webshop
 
-Like it? Donations are welcome! rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
+Like it? 
+Donate XRP: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
+Donate BTC: 1F6kuw1KtFkgQkUQ3eftmJm6UiNaM5LySs
 
 ## Features
 - Display prices in XRP in store and on checkout
@@ -16,3 +18,10 @@ Like it? Donations are welcome! rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
 
 ## Screenshot
 ![Screenshot1](/assets/screenshot-1.png "Checkout")
+
+## Changelog
+### v0.0.2
+- Now using cryptonator API for exchange rate (Ripple returned an optimistic value for EURXRP)
+
+### v0.0.1
+- Initial release

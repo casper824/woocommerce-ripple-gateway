@@ -32,6 +32,7 @@ class RippleApi
             $query = '?' . rtrim($query, '&');
         }
 
+        echo $endpoint;
         $ch = curl_init();
         // curl_setopt ($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_VERBOSE, 1);

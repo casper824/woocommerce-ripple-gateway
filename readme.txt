@@ -32,6 +32,9 @@ Install the plugin by uploading the zipfile in your WP admin interface or via FT
 
 == Changelog ==
 
+= 0.0.2 =
+* Now using cryptonator API for exchange rate (Ripple returned an optimistic value for EURXRP)
+
 = 0.0.1 =
 * Initial release
 
