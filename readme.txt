@@ -14,7 +14,10 @@ Show prices in XRP and accept Ripple payments in your woocommerce webshop
 
 Display prices in XRP and let your clients pay through Ripple.
 
-Ripple address: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
+Like it? 
+Donate XRP: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
+Donate BTC: 1F6kuw1KtFkgQkUQ3eftmJm6UiNaM5LySs
+
 
 == Installation ==
 

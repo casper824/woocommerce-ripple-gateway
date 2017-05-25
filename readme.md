@@ -4,7 +4,9 @@ WooCommerce Ripple Gateway
 Show prices in XRP and accept Ripple payments in your woocommerce webshop
 
 Like it? 
+
 Donate XRP: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
+
 Donate BTC: 1F6kuw1KtFkgQkUQ3eftmJm6UiNaM5LySs
 
 ## Features
