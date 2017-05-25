@@ -6,7 +6,7 @@ Show prices in XRP and accept Ripple payments in your woocommerce webshop
 Like it? Donate to ripple address: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
 
 
-![Alt text](/assets/screenshot-1.png?raw=true "Checkout")
+![Screenshot1](/assets/screenshot-1.png?raw=true "Checkout")
 
 
 ## Features
