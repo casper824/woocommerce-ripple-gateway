@@ -4,7 +4,7 @@ Donate link: rwG1An46e6mz5MJkXsXSqsupHsMU2vcdLY
 Tags: billing, invoicing, woocommerce, packing, packingslip
 Requires at least: 3.0.1
 Tested up to: 4.7.5
-Stable tag: 0.0.3
+Stable tag: 0.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,13 @@ Install the plugin by uploading the zipfile in your WP admin interface or via FT
 
 
 == Changelog ==
+
+= 0.0.5 =
+* Replaced cURL by wp_remote_get
+
+= 0.0.4 =
+* Fixed typo in currency label
+* Added a discount percentage for XRP payments
 
 = 0.0.3 =
 * Changed timer to 10 minutes

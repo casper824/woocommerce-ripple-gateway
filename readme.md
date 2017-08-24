@@ -23,6 +23,13 @@ Donate BTC: 1F6kuw1KtFkgQkUQ3eftmJm6UiNaM5LySs
 
 ## Changelog
 
+### v0.0.5
+- Replaced cURL by wp_remote_get
+
+### v0.0.4
+- Fixed typo in currency label
+- Added a discount percentage for XRP payments
+
 ### v0.0.3
 - Changed timer to 10 minutes
 - Update destination tag on each refresh

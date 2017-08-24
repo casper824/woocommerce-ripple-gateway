@@ -47,7 +47,12 @@ if (!class_exists('RippleSettings')) {
                         'type'    => 'checkbox',
                         'label'   => __('Add prices in XRP', 'woocommerce-ripple-gateway'),
                         'default' => 'no',
-
+                    ),
+                    'discount'    => array(
+                        'title'       => __('Discount percentage', 'woocommerce-ripple-gateway'),
+                        'type'        => 'text',
+                        'default'     => '0',
+                        'description' => __('Add a discount % users will get when using this gateway. (numbers only)', 'woocommerce-ripple-gateway'),
                     ),
                     'test_mode'   => array(
                         'title'   => __('Test mode active', 'woocommerce-ripple-gateway'),
