@@ -23,7 +23,33 @@ class RippleApi
 
     private function get($endpoint, $params = array())
     {
-        return json_decode(wp_remote_get($this->url . $endpoint . $query));
+
+        $query = false;
+        if (count($params) > 0) {
+            foreach ($params as $k => $v) {
+                $query .= $k . '=' . $v . '&';
+            }
+            $query = '?' . rtrim($query, '&');
+        }
+
+        $ch = curl_init();
+        // curl_setopt ($ch, CURLOPT_HEADER, 1);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_URL, $this->url . $endpoint . $query);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_PORT, $this->port);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+
+        if (curl_errno($ch)) {
+            print_r(curl_errno($ch), true);
+        }
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        return json_decode($result);
+
     }
 
     public function validAccount($address)
@@ -46,7 +72,7 @@ class RippleApi
             'currency'        => 'XRP',
             'descending'      => true,
             'destination_tag' => $dt,
-            'start'           => Date('Y-m-d\TH:i:s\Z', strtotime("-15 minutes")),
+            'start'           => Date('Y-m-d\TH:i:s\Z', strtotime("-10 hours")),
         );
         $result = $this->get('accounts/' . $this->address . '/payments', $params);
         if ($result->count == 0) {

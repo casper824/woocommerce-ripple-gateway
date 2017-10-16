@@ -6,7 +6,7 @@
  * Plugin Name: WooCommerce Ripple Gateway
  * Plugin URI: www.q-invoice.com
  * Description: Show prices in XRP and accept Ripple payments in your woocommerce webshop
- * Version: 0.0.5
+ * Version: 0.0.6
  * Author: Casper Mekel
  * License: GPLv2 or later
  * License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -35,12 +35,10 @@ if (!defined('ABSPATH')) {
 }
 
 if (!class_exists('WcRipple')) {
-
     class WcRipple
     {
-
         private static $instance;
-        public static $version = '0.0.3';
+        public static $version = '0.0.6';
         public static $plugin_basename;
         public static $plugin_path;
         public static $plugin_url;
@@ -68,7 +66,6 @@ if (!class_exists('WcRipple')) {
 
         public function initGateway()
         {
-
             if (!class_exists('WC_Payment_Gateway')) {
                 return;
             }
@@ -80,22 +77,31 @@ if (!class_exists('WcRipple')) {
             /*
              * Include gateway classes
              * */
-            include_once plugin_basename('includes/class-ripple-gateway.php');
+            include_once
+            plugin_basename('includes/class-ripple-gateway.php');
             include_once plugin_basename('includes/class-ripple-api.php');
-            include_once plugin_basename('includes/class-ripple-exchange.php');
-            include_once plugin_basename('includes/class-ripple-settings.php');
+            include_once
+            plugin_basename('includes/class-ripple-exchange.php');
+            include_once
+            plugin_basename('includes/class-ripple-settings.php');
             include_once plugin_basename('includes/class-ripple-ajax.php');
 
-            add_filter('woocommerce_payment_gateways', array($this, 'addToGateways'));
+            add_filter('woocommerce_payment_gateways', array($this,
+                'addToGateways'));
 
             // add_filter('woocommerce_currencies', array('WcRippleGateway', 'addToCurrencies'));
             // add_filter('woocommerce_currency_symbol', array('WcRippleGateway', 'addCurrencySymbol'), 10, 2);
 
-            add_filter('woocommerce_get_price_html', array($this, 'filterPriceHtml'), 10, 2);
-            add_filter('woocommerce_cart_item_price', array($this, 'filterCartItemPrice'), 10, 3);
-            add_filter('woocommerce_cart_item_subtotal', array($this, 'filterCartItemSubtotal'), 10, 3);
-            add_filter('woocommerce_cart_subtotal', array($this, 'filterCartSubtotal'), 10, 3);
-            add_filter('woocommerce_cart_totals_order_total_html', array($this, 'filterCartTotal'), 10, 1);
+            add_filter('woocommerce_get_price_html', array($this,
+                'filterPriceHtml'), 10, 2);
+            add_filter('woocommerce_cart_item_price', array($this,
+                'filterCartItemPrice'), 10, 3);
+            add_filter('woocommerce_cart_item_subtotal', array($this,
+                'filterCartItemSubtotal'), 10, 3);
+            add_filter('woocommerce_cart_subtotal', array($this,
+                'filterCartSubtotal'), 10, 3);
+            add_filter('woocommerce_cart_totals_order_total_html',
+                array($this, 'filterCartTotal'), 10, 1);
 
         }
 
@@ -111,27 +117,30 @@ if (!class_exists('WcRipple')) {
             $value = $this->convertToXrp($value, $total);
             return $value;
         }
-        public function filterCartSubtotal($cart_subtotal, $compound, $that)
-        {
-            $cart_subtotal = $this->convertToXrp($cart_subtotal, $that->subtotal);
-            return $cart_subtotal;
-        }
+        public function filterCartSubtotal($cart_subtotal, $compound,
+            $that) {
+            $cart_subtotal = $this->convertToXrp($cart_subtotal, $that
+                    ->subtotal);
+                return $cart_subtotal;
+            }
 
-        public function filterPriceHtml($price, $that)
+            public function filterPriceHtml($price, $that)
         {
             $price = $this->convertToXrp($price, $that->price);
             return $price;
         }
 
-        public function filterCartItemPrice($price, $cart_item, $cart_item_key)
-        {
-            $price = $this->convertToXrp($price, ($cart_item['line_subtotal'] + $cart_item['line_subtotal_tax']) / $cart_item['quantity']);
+        public function filterCartItemPrice($price, $cart_item,
+            $cart_item_key) {
+            $price = $this->convertToXrp($price,
+                ($cart_item['line_subtotal'] + $cart_item['line_subtotal_tax']) / $cart_item['quantity']);
             return $price;
         }
 
-        public function filterCartItemSubtotal($price, $cart_item, $cart_item_key)
-        {
-            $price = $this->convertToXrp($price, $cart_item['line_subtotal'] + $cart_item['line_subtotal_tax']);
+        public function filterCartItemSubtotal($price, $cart_item,
+            $cart_item_key) {
+            $price = $this->convertToXrp($price,
+                $cart_item['line_subtotal'] + $cart_item['line_subtotal_tax']);
             return $price;
         }
 
@@ -141,15 +150,13 @@ if (!class_exists('WcRipple')) {
 
             $options = get_option('woocommerce_ripple_settings');
 
-            if ($options['show_prices'] == 'yes') {
-
-                $xrp_price = round(RippleExchange::convert($currency, $price), 2, PHP_ROUND_HALF_UP);
-                // subtract discount
-                if (is_numeric($options['discount']) && $options['discount'] > 0) {
-                    $xrp_price -= ($xrp_price * $options['discount'] / 100);
-                }
+            if ($options['show_prices']) {
+                $xrp_price = round(RippleExchange::convert($currency,
+                    $price), 2, PHP_ROUND_HALF_UP);
                 if ($xrp_price) {
-                    $new_price_string = $price_string . '&nbsp;(<span class="woocommerce-price-amount amount">' . $xrp_price . '&nbsp;</span><span class="woocommerce-price-currencySymbol">XRP)</span>';
+                    $new_price_string = $price_string .
+                        '&nbsp;(<span class="woocommerce-price-amount amount">' . $xrp_price .
+                        '&nbsp;</span><span class="woocommerce-price-currencySymbol">XPR)</span>';
                     return $new_price_string;
                 }
             }

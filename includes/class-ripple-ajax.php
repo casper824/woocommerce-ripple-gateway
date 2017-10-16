@@ -53,7 +53,7 @@ class RippleAjax
         $ra     = new RippleApi($options['address']);
         $result = $ra->findByDestinationTag($destination_tag);
 
-        $result['match'] = ($result['amount'] == $payment_total || $options['test_mode'] == 'yes') ? true : false;
+        $result['match'] = $result['amount'] == $payment_total ? true : false;
 
         echo json_encode($result);
         exit();
