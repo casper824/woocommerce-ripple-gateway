@@ -23,6 +23,9 @@ Donate BTC: 1F6kuw1KtFkgQkUQ3eftmJm6UiNaM5LySs
 
 ## Changelog
 
+### v0.0.6
+- Cleaned repo
+
 ### v0.0.5
 - Replaced cURL by wp_remote_get
 
