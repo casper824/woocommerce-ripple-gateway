@@ -26,7 +26,7 @@ Install the plugin by uploading the zipfile in your WP admin interface or via FT
 
 == Screenshots ==
 
-
+sreeenshot-1.png
 
 == Changelog ==
 
